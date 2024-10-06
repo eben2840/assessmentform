@@ -1,0 +1,173 @@
+
+  
+  header {
+    position: relative;
+  }
+  
+  header svg {
+    width: 60px;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    height: auto;
+    scale: 1 1;
+    transform-origin: 100% 100%;
+    rotate: 25deg;
+    fill: canvasText;
+    translate: -25% -25%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: canvas;
+    color: canvasText;
+    align-content: center;
+  }
+  
+  body::before {
+    --size: 30px;
+    --line: color-mix(in lch, canvasText, transparent 85%);
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: radial-gradient(4px 4px at 50% 50%,
+          var(--line) 2px,
+          transparent 2px var(--size)
+        )
+        50% 50% / var(--size) var(--size);
+    mask: linear-gradient(-25deg, transparent 30%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  p {
+    width: 60ch;
+    max-width: calc(100% - 2rem);
+  }
+  
+  h1 {
+    font-size: clamp(3rem, 7vw + 1rem, 5rem);
+    text-wrap: balance;
+  }
+  
+  :root {
+    --size: 45px;
+    --line: color-mix(in lch, white, transparent 85%);
+    background: linear-gradient(
+          90deg,
+          var(--line) 1px,
+          transparent 1px var(--size)
+        )
+        50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size), hsl(210 70% 34%);
+  }
+  
+  ::view-transition-new(body),
+  ::view-transition-old(body) {
+    animation: pan 1s ease-in-out;
+    backface-visibility: hidden;
+    box-shadow: 2.2px 61.3px 73.1px -2px hsl(0 0% 0% / 0.58);
+  }
+  
+  ::view-transition-new(body) {
+    --sr: 180deg;
+    background: canvas;
+  }
+  
+  ::view-transition-old(body) {
+    --sr: 0deg;
+    backface-visibility: hidden;
+  }
+  
+  body {
+    view-transition-name: body;
+  }
+  
+  @keyframes pan {
+    0% {
+      transform: scale(1) rotateY(var(--sr));
+    }
+    25% {
+      transform: scale(0.5) rotateY(var(--sr));
+      box-shadow: 1.8px 50.7px 51.4px -3.2px hsl(0 0% 0% / 0.32);
+    }
+    75% {
+      transform: scale(0.5) rotateY(calc(var(--sr) + 180deg));
+      box-shadow: 1.8px 50.7px 51.4px -3.2px hsl(0 0% 0% / 0.32);
+    }
+    100% {
+      transform: scale(1) rotateY(calc(var(--sr) + 180deg));
+    }
+  }
+  
+  :root {
+    view-transition-name: none;
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  [aria-pressed] {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 48px;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    transition: background 0.2;
+    cursor: pointer;
+    background-color: color-mix(in lch, canvas, canvasText calc(var(--intent) * 15%));
+  }
+  
+  button svg {
+    width: 50%;
+  }
+  
+  button:is(:focus-visible, :hover) {
+    --intent: 1;
+  }
+  
+  main {
+    width: 600px;
+    max-width: calc(100% - 2rem);
+  }
+  
+  .bear-link {
+    color: canvasText;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 48px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    opacity: 0.8;
+  }
+  
+  :where(.x-link, .bear-link):is(:hover, :focus-visible) {
+    opacity: 1;
+  }
+  .bear-link svg {
+    width: 75%;
+  }

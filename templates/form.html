@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Form Assessment</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="static/js/style.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+     
+    <div class="container mt-5 mx-auto" id="app">
+        <h6 style="font-size:30px; text-align:center;"><b>My Assessment Form</b></h6>
+       <h6 style="  text-align:center;">Thank you for partnering with us on your project! </h6>
+       <hr >
+
+        <h4 style="margin-top:30px;"><b>Start Assessment</b></h4>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+        <div class="row mt-3"> 
+            <div class="col-lg-12">
+                <div class="form-group mx-auto">
+                <label style="">Enter Name</label>
+                {{ form.name(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+                
+                </div>
+            </div>
+           
+        </div>
+        <h4 style="margin-top:30px;"><b>Project Feedback</b></h4>
+        <div class="row mt-3"> 
+        <div class="col-lg-6">
+            <div class="form-group mx-auto">
+            <label style="">1. How satisfied are you with the final product?</label>
+            {{ form.product(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+            
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group mx-auto">
+            <label style="">2. Did the application meet your expectations?</label>
+            {{ form.aplication(type="text", style="width:100%; padding:30px;",
+            class="form-control mx-auto",  placeholder="Ohene Mills") }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group mx-auto">
+            <label style="">3. Are you happy with all features?</label>
+            {{ form.happy(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group mx-auto">
+            <label style="">4. How would you rate the overall performance of the application?</label>
+            {{ form.overall(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+            </div>
+        </div>
+
+    </div>
+
+    <h4 class="mt-4"><b>Project Timeline & Communication</b></h4>
+        <div class="row mt-3"> 
+            <div class="col-lg-6">
+                <div class="form-group mx-auto">
+                <label style="">1. Was the project delivered on time?</label>
+                {{ form.time(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group mx-auto">
+                <label style="">2. How was the communication throughout the project??</label>
+                {{ form.project(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+                </div>
+            </div>
+
+          
+
+           
+    
+        </div>
+
+        <h4 class="mt-4"><b>Additional Comments</b></h4>
+        <div class="row mt-3"> 
+                <div class="col-lg-12">
+                <div class="form-group mx-auto">
+                <label style="">1. Would you recommend our services to others?</label>
+                {{ form.services(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+                </div>
+
+
+              
+
+
+          
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group mx-auto">
+                <label style="">General Comments if any?</label>
+                {{ form.caption(type="text", style="width:100%; padding:30px;",
+                class="form-control mx-auto",  placeholder="Ohene Mills") }}
+                </div>
+
+
+              
+                <button class="sendme mb-5" type="submit">Submit Forms</button>
+
+          
+            </div>
+            
+          
+    
+        </div>
+    </form>
+        
+   
+        <!--<a href="https://github.com/muhammederdem/credit-card-form" target="_blank" class="github-btn">
+            sdf
+          </a> 
+      -->
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="static/js/style.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

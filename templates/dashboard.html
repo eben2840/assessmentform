@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{ current_user.username }}</h1>
+    <p><a href="{{ url_for('generate_qr') }}">Generate Your QR Code</a></p>
+    <a href="{{ url_for('checkin_history') }}" class="btn btn-info">
+        View Check-in History
+    </a>
+    <p><a href="{{ url_for('logout') }}">Log Out</a></p>
+</body>
+</html>

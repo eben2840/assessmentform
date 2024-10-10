@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #reader {
+            width: 500px;
+            height: 500px;
+            border: 2px solid #ccc;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>QR Code Scanner</h2>
+    <div id="reader"></div>
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function onScanSuccess(qrCodeMessage) {
+            console.log("QR Code detected: ", qrCodeMessage);
+            document.getElementById("result").innerText = `Scanned: ${qrCodeMessage}`;
+        }
+
+        function onScanError(errorMessage) {
+            console.error("QR Code scan error: ", errorMessage);
+            document.getElementById("result").innerText = "Scan error. Check console for details.";
+        }
+
+        // Create the QR scanner instance
+        const html5QrCode = new Html5Qrcode("reader");
+
+        // Start scanning
+        html5QrCode.start(
+            { facingMode: "environment" }, // Use the back camera
+            {
+                fps: 10,
+                qrbox: { width: 250, height: 250 }
+            })
+            .then(() => {
+                console.log("QR Code scanner started successfully.");
+            })
+            .catch(err => {
+                console.error("Unable to start scanning: ", err);
+                document.getElementById("result").innerText = "Error starting QR scanner. Please check your camera permissions.";
+            });
+
+    </script>
+
+</body>
+</html>

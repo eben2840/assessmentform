@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>QR Codes for Today</h1>
+
+    <h2>QR Code for Check-in</h2>
+    <img src="{{ url_for('static', filename=check_in_qr_path.split('static/')[1]) }}" alt="Check-in QR Code">
+
+    <h2>QR Code for Check-out</h2>
+    <img src="{{ url_for('static', filename=check_out_qr_path.split('static/')[1]) }}" alt="Check-out QR Code">
+
+</body>
+</html>

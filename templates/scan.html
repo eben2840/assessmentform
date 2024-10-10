@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Result</title>
+</head>
+<body>
+    <h1>Attendance for {{ staff.username }}</h1>
+    {% if staff.checkins %}
+        <ul>
+            {% for checkin in staff.checkins %}
+                <li>Checked in at: {{ checkin.check_in_time }} 
+                {% if checkin.check_out_time %}
+                    | Checked out at: {{ checkin.check_out_time }}
+                {% else %}
+                    | Not checked out yet
+                {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No check-ins yet.</p>
+    {% endif %}
+</body>
+</html>

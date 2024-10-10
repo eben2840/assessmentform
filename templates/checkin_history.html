@@ -1,0 +1,24 @@
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Check-in Time</th>
+            <th>Check-out Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for checkin in checkins %}
+            <tr>
+                <td>{{ checkin.user.username }}</td> <!-- Access the related user's username -->
+                <td>{{ checkin.check_in_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>
+                    {% if checkin.check_out_time %}
+                        {{ checkin.check_out_time.strftime('%Y-%m-%d %H:%M:%S') }}
+                    {% else %}
+                        Not yet checked out
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
